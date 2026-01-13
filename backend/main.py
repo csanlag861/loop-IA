@@ -1,8 +1,15 @@
 from fastapi import FastAPI
 from schemas import TextRequest
 from ia.toxic_model import ToxicityAnalyzer
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 analyzer = ToxicityAnalyzer()
 
 @app.post("/detector")
