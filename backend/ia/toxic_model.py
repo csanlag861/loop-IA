@@ -2,8 +2,14 @@ from detoxify import Detoxify
 
 class ToxicityAnalyzer:
     def __init__(self):
-        # Carga el modelo toxic-bert desde HuggingFace
-        self.model = Detoxify('original')
+        self.model = Detoxify("original")
 
     def analyze(self, text: str) -> dict:
-        return self.model.predict(text)
+        raw_results = self.model.predict(text)
+
+        clean_results = {
+            key: round(float(value) * 100, 2)
+            for key, value in raw_results.items()
+        }
+
+        return clean_results
