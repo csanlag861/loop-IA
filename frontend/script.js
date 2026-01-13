@@ -1,5 +1,35 @@
+const input = document.getElementById("messageInput")
+const sendBtn = document.getElementById("sendBtn")
 // URL de tu API (ajusta el puerto si es necesario)
 const API_URL = 'http://localhost:8000/detector';
+
+function updateButtonState() {
+  sendBtn.disabled = input.value.trim() === ""
+}
+
+function sendMessage() {
+  const message = input.value.trim()
+  if (message) {
+    console.log("Message sent:", message)
+    alert("Message sent: " + message)
+    input.value = ""
+    updateButtonState()
+  }
+}
+
+input.addEventListener("input", updateButtonState)
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault()
+    sendMessage()
+  }
+})
+
+sendBtn.addEventListener("click", sendMessage)
+
+// Initialize button state
+updateButtonState()
 
 // Función para analizar texto
 async function analyzeText(text) {
