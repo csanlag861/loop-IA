@@ -13,6 +13,7 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -93,4 +94,60 @@ body {
 
 .send-btn:disabled:hover {
   background-color: #2a2a2a;
+}
+
+.results-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+}
+
+.results-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.status-safe {
+  color: #22c55e; /* verde suave */
+}
+
+.status-offensive {
+  color: #ef4444; /* rojo Vercel */
+}
+
+.results-subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #a1a1a1;
+  margin-bottom: 0.75rem;
+}
+
+.results-list {
+  list-style: none;
+}
+
+.results-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1f1f1f;
+  font-size: 0.9rem;
+}
+
+.results-item:last-child {
+  border-bottom: none;
+}
+
+.category {
+  color: #d4d4d4;
+  text-transform: capitalize;
+}
+
+.score {
+  font-variant-numeric: tabular-nums;
+  color: #fafafa;
 }
