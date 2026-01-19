@@ -14,7 +14,7 @@ analyzer = ToxicityAnalyzer()
 
 @app.post("/detector")
 def analyze_text(request: TextRequest):
-    scores = analyzer.analyze(request.text)
+    scores = analyzer.analizar(request.text)
     offensive = any(score > 70 for score in scores.values())
 
     return {

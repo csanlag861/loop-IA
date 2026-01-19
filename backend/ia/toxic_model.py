@@ -4,12 +4,12 @@ class ToxicityAnalyzer:
     def __init__(self):
         self.model = Detoxify("multilingual")
 
-    def analyze(self, text: str) -> dict:
-        raw_results = self.model.predict(text)
+    def analizar(self, text: str) -> dict:
+        resultados = self.model.predict(text)
 
-        clean_results = {
+        resultados_filtrados = {
             key: round(float(value) * 100, 2)
-            for key, value in raw_results.items()
+            for key, value in resultados.items()
         }
 
-        return clean_results
+        return resultados_filtrados
